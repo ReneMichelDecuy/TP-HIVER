@@ -19,29 +19,29 @@ try {
 </head>
 
 <body>
-    <h1>Modification d'astuces</h1>
+    <h1>Modification équipe</h1>
     <?php
-    if (isset($_POST["btnAstuce"])) {
+    if (isset($_POST["btnEquipe"])) {
         if (isset($_SESSION["NoUser"])) {
-            $Req = $MaBase->query("UPDATE Astuce SET Astuce = '" . $_POST["txtAstuce"] . "' WHERE IdAstuce = '" . $_POST["nbastuce"] . "'");
+            $Req = $MaBase->query("UPDATE equipe SET equipe = '" . $_POST["txtEquipe"] . "' WHERE IdAstuce = '" . $_POST["nbEquipe"] . "'");
             echo "Astuce modifiée";
         } else echo "Vous n'êtes pas connecté";
         echo '<p><a href="modifastuce.php">Modifier une autre astuce</a></p>';
     } else {
     ?>
         <form action="" method="post">
-            Astuce : <select name="nbastuce" id="nbastuce" required>
+            Astuce : <select name="nbEquipe" id="nbEquipe" required>
                 <option value="">---Choisir équipe---</option>
-                <?php $reponse = $MaBase->query("SELECT Jeux.Titre,Astuce.IdAstuce,Astuce.Astuce FROM Jeux,Astuce WHERE Astuce.IdJeux=Jeux.IdJeux ORDER BY Jeux.Titre;");
+                <?php $reponse = $MaBase->query("SELECT * FROM equipe;");
                 while ($donnees = $reponse->fetch()) {
                 ?>
-                    <option value="<?php echo $donnees['IdAstuce']; ?>">
-                        <?php echo $donnees["Titre"] . " : " . $donnees['Astuce']; ?>
+                    <option value="<?php echo $donnees['IdEquipe']; ?>">
+                        <?php echo $donnees[""] . " : " . $donnees['']; ?>
                     </option>
                 <?php } ?>
             </select>
-            Modif : <input type="text" name="txtAstuce" id="txtAstuce" required>
-            <input type="submit" name="btnAstuce" value="Modifier">
+            Modif : <input type="text" name="txtEquipe" id="txtEquipe" required>
+            <input type="submit" name="btnEquipe" value="Modifier">
         </form>
     <?php
     }

@@ -19,29 +19,26 @@ try {
 </head>
 
 <body>
-    <h1>Suppression d'astuces</h1>
+    <h1>Suppression équipe</h1>
     <?php
     if (isset($_POST["btnSupp"])) {
         if (isset($_SESSION["NoUser"])) {
-            $Req = $MaBase->query("DELETE FROM Astuce WHERE IdAstuce = '" . $_POST["nbAstuce"] . "'");
-            $Req = $MaBase->query("DELETE FROM Commentaire WHERE IdAstuce = '" . $_POST["nbAstuce"] . "'");
-            echo "Astuce et commentaires liés supprimés";
+            $Req = $MaBase->query("DELETE FROM equipe WHERE IdEquipe = '" . $_POST["nbEquipe"] . "'");
+            echo "Équipe supprimés";
         } else echo "Vous n'êtes pas connecté";
     }
     ?>
     <form action="" method="post">
-        Astuce : <select name="nbAstuce" id="nbAstuce" required>
+        Astuce : <select name="nbEquipe" id="nbEquipe" required>
             <option value=""> ---Choisir équipe--- </option>
-            <?php $reponse = $MaBase->query("SELECT Jeux.Titre,Astuce.IdAstuce,Astuce.Astuce FROM Jeux,Astuce WHERE Astuce.IdJeux=Jeux.IdJeux ORDER BY Jeux.Titre;");
+            <?php $reponse = $MaBase->query("SELECT * FROM equipe;");
             while ($donnees = $reponse->fetch()) {
             ?>
-                <option value="<?php echo $donnees['IdAstuce']; ?>">
-                    <?php echo $donnees["Titre"] . " : " . $donnees['Astuce']; ?>
+                <option value="<?php echo $donnees['IdEquipe']; ?>">
+                    <?php echo $donnees[""] . " : " . $donnees['']; ?>
                 </option>
             <?php } ?>
         </select>
-        Commentaire : <input type="text" name="txtComm" id="txtComm" required>
-        <input type="submit" name="btnSupp" value="Suppression">
     </form>
     <p><a href="../index.php">Retour</a></p>
 </body>
