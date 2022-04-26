@@ -45,8 +45,8 @@ try {
         $Req = $MaBase->query("INSERT INTO utilisateur(nom,mdp) VALUES ('" . $_POST["txtUser"] . "','" . $_POST["pwdUser"] . "')");
         $Req = $MaBase->query("SELECT * FROM utilisateur WHERE nom = '" . $_POST["txtUser"] . "' AND mdp = '" . $_POST["pwdUser"] . "'");
         $test = $Req->fetch();
-        $_SESSION["NomUser"] = $test["IdUser"];
-        $util=new User($test["IdUser"],$test["NomUser"]);
+        $_SESSION["NomUser"] = $test["id"];
+        $util=new User($test["id"],$test["nom"]);
         echo "Bienvenue " . $_SESSION["NomUser"];
     } else {
     ?>

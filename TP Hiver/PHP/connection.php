@@ -44,9 +44,9 @@ try {
     if (isset($_POST["btnConnection"])) {
         $Req = $MaBase->query("SELECT * FROM utilisateur WHERE nom = '" . $_POST["txtUser"] . "' AND mdp = '" . $_POST["pwdUser"] . "'");
         $test = $Req->fetch();
-        if (isset($test["IdUser"])) {
-            $_SESSION["NomUser"] = $test["IdUser"];
-            $util = new User($test["IdUser"], $test["NomUser"]);
+        if (isset($test["id"])) {
+            $_SESSION["NomUser"] = $test["nom"];
+            $util = new User($test["id"], $test["nom"]);
             echo "Connecté en tant que " . $_SESSION["NomUser"];
         } else echo "Utilisateur inconnu";
     } else {
