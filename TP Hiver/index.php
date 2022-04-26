@@ -19,24 +19,22 @@ try {
 </head>
 
 <body>
-    <div class="compte">
-        <ul>
-            <?php
+    <h1 class="centre"><u>Bienvenue sur 5 Majeur !</u></h1>
+    <div class="border">
+        <nav>
+            <ul>
+                <li><a href="PHP/affichage.php">Voir les équipes</a></li>
+                <li><a href="PHP/ajout.php">Ajouter une équipe</a></li>
+                <li><a href="PHP/modif.php">Modifier équipe</a></li>
+                <li><a href="PHP/delete.php">Supprimer équipe</a></li>
+                <?php
             if (!isset($_SESSION["NomUser"])) {
                 echo '<li><a href="PHP/connection.php">Connexion</a></li>';
                 echo '<li><a href="PHP/inscription.php">Inscription</a></li>';
             } else echo '<li><a href="PHP/deconnection.php">Deconnexion</a></li>';
             ?>
-        </ul>
-    </div>
-    <h1 class="centre"><u>Bienvenue sur 5 Majeur !</u></h1>
-    <div class="border">
-        <ul>
-            <li><a href="PHP/affichage.php">Voir les équipes</a></li>
-            <li><a href="PHP/ajoutastuce.php">Ajouter une équipe</a></li>
-            <li><a href="PHP/modifastuce.php">Modifier équipe</a></li>
-            <li><a href="PHP/delastuce.php">Supprimer équipe</a></li>
-        </ul>
+            </ul>
+        </nav>    
     </div>
 </body>
 

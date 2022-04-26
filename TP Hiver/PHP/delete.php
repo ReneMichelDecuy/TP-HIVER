@@ -13,40 +13,34 @@ try {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'acceuil</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../Image/icone.png">
     <link rel='stylesheet' href='../CSS/fichier.css'>
-    <title>Page d'acceuil</title>
 </head>
 
 <body>
-    <h1>Équipe</h1>
+    <h1>Suppression équipe</h1>
+    <?php
+    if (isset($_POST["btnSupp"])) {
+        if (isset($_SESSION["NoUser"])) {
+            $Req = $MaBase->query("DELETE FROM equipe WHERE IdEquipe = '" . $_POST["nbEquipe"] . "'");
+            echo "Équipe supprimés";
+        } else echo "Vous n'êtes pas connecté";
+    }
+    ?>
     <form action="" method="post">
         Équipe : <select name="nbEquipe" id="nbEquipe" required>
-            <option value=""> ---Afficher équipe--- </option>
-            <?php $reponse = $MaBase->query("SELECT * FROM equipe");
+            <option value=""> ---Choisir équipe--- </option>
+            <?php $reponse = $MaBase->query("SELECT * FROM equipe;");
             while ($donnees = $reponse->fetch()) {
             ?>
                 <option value="<?php echo $donnees['IdEquipe']; ?>">
-                    <?php echo $donnees['']; ?>
+                    <?php echo $donnees[""] . " : " . $donnees['']; ?>
                 </option>
             <?php } ?>
         </select>
-        <input type="submit" name="btnEquipe" value="Chercher">
     </form>
-    <?php
-    if (isset($_POST["btnEquipe"])) {
-        $reponse = $MaBase->query("SELECT * FROM equipe WHERE Idequipe = '" . $_POST["nbEquipe"] .  "'");
-        $donnees = $reponse->fetch();
-        echo "<span> Equipe sélectionner : " . $donnees[""] . "</span>";
-    
-    ?>
-
-    <?php
-        } else echo "Il n'y a pas d'équipe";
-    
-    ?>
     <p><a href="../index.php">Retour</a></p>
-
 </body>
 
 </html>
