@@ -15,15 +15,34 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création équipe</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../Image/icone.png">
-    <link rel='stylesheet' href='../CSS/fichier.css'>
+    <link rel='stylesheet' href='../CSS/style.css'>
 </head>
 
 <body>
+
+<div class="">
+        <nav>
+            <ul>
+            <li><a href="../index.php">Acceuil</a></li>
+                <li><a href="../PHP/affichage.php">Voir les équipes</a></li>
+                <li><a href="../PHP/ajout.php">Ajouter une équipe</a></li>
+                <li><a href="../PHP/modif.php">Modifier équipe</a></li>
+                <li><a href="../PHP/delete.php">Supprimer équipe</a></li>
+                <?php
+            if (!isset($_SESSION["NomUser"])) {
+                echo '<li><a href="../PHP/connection.php">Connexion</a></li>';
+                echo '<li><a href="../PHP/inscription.php">Inscription</a></li>';
+            } else echo '<li><a href="../PHP/deconnection.php">Deconnexion</a></li>';
+            ?>
+            </ul>
+        </nav>    
+    </div>
+
     <h1>Ajout équipe</h1>
     <?php
     if (isset($_POST["btnEquipe"])) {
-        if (isset($_SESSION["NoUser"])) {
-            $Req = $MaBase->query("INSERT INTO equipe(id_utilisateur,id_meneur,id_arriere,id_ailier,id_ailierfort,id_pivot) VALUES ('" . $_POST["nbMeneur"] . "','" . $_POST["nbArriere"] . "','" . $_POST["nbAilier"] . "','" . $_POST["nbAilierFort"] . "','" . $_POST["nbPivot"] . "','" . $_SESSION["NoUser"] . "','" . $_POST["txtEquipe"] . "')");
+        if (isset($_SESSION["NomUser"])) {
+            $Req = $MaBase->query("INSERT INTO equipe(id_utilisateur,id_meneur,id_arriere,id_ailier,id_ailierfort,id_pivot) VALUES ('" . $_POST["nbMeneur"] . "','" . $_POST["nbArriere"] . "','" . $_POST["nbAilier"] . "','" . $_POST["nbAilierFort"] . "','" . $_POST["nbPivot"] . "','" . $_SESSION["NomUser"] . "','" . $_POST["txtEquipe"] . "')");
             echo "Équipe ajoutée";
         } else echo "Vous n'êtes pas connecté";
         echo '<p><a href="ajout.php">Ajouter une nouvelle équipe</a></p>';
@@ -87,7 +106,6 @@ try {
     <?php
     }
     ?>
-    <p><a href="../index.php">Retour</a></p>
 </body>
 
 </html>
