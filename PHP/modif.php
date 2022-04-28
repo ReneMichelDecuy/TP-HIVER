@@ -1,7 +1,8 @@
 <?php
 session_start();
 try {
-    $MaBase = new PDO('mysql:host=mysql-decuyrene.alwaysdata.net;dbname=decuyrene_5majeur', 'decuyrene', 'JordaN_121216');
+    //$MaBase = new PDO('mysql:host=mysql-decuyrene.alwaysdata.net;dbname=decuyrene_5majeur', 'decuyrene', 'JordaN_121216');
+    $MaBase = new PDO('mysql:host=192.168.65.4;dbname=decuyrene_5majeur', 'decuyrene', 'JordaN_121216');
 } catch (Exception $e) {
     echo $e;
     //test
@@ -44,9 +45,9 @@ try {
     if (isset($_POST["btnEquipe"])) {
         if (isset($_SESSION["NomUser"])) {
             $Req = $MaBase->query("UPDATE equipe SET equipe = '" . $_POST["txtEquipe"] . "' WHERE id = '" . $_POST["nbEquipe"] . "'");
-            echo "Astuce modifiée";
+            echo "Equipe modifiée";
         } else echo "Vous n'êtes pas connecté";
-        echo '<p><a href="modifastuce.php">Modifier une autre astuce</a></p>';
+        
     } else {
     ?>
         <form action="" method="post">

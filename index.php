@@ -1,7 +1,9 @@
 <?php
 session_start();
 try {
-    $MaBase = new PDO('mysql:host=mysql-decuyrene.alwaysdata.net;dbname=decuyrene_5majeur', 'decuyrene', 'JordaN_121216');
+    //$MaBase = new PDO('mysql:host=mysql-decuyrene.alwaysdata.net;dbname=decuyrene_5majeur', 'decuyrene', 'JordaN_121216');
+    $MaBase = new PDO('mysql:host=192.168.65.4;dbname=decuyrene_5majeur', 'decuyrene', 'JordaN_121216');
+
 } catch (Exception $e) {
     echo $e;
 }
