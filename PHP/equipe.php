@@ -1,5 +1,9 @@
 <?php
+include "../Classes/Meneur.php";
+include "../Classes/Arriere.php";
 include "../Classes/Ailier.php";
+include "../Classes/Ailierfort.php";
+include "../Classes/Pivot.php";
 
 class equipe{
     private $id_;
