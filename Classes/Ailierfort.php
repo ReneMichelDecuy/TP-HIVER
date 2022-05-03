@@ -4,11 +4,11 @@
     private $nom_;
     private $PDO_;
 
-    public function __construct($id_,$nom_,$prenom_,$pdo)
+    public function __construct($id_,$pdo)
     {
         $this->id=$id_;
-        $this->nom=$nom_;
-        $this->prenom=$prenom_;
+        //$this->nom=$nom_;
+        //$this->prenom=$prenom_;
         $this->PDO_=$pdo;
     }
     

@@ -4,11 +4,12 @@
     private $nom_;
     private $PDO_;
 
-    public function __construct($id_,$nom_,$prenom_,$pdo)
+    public function __construct($id,$pdo)
     {
-        $this->id=$id_;
-        $this->nom=$nom_;
-        $this->prenom=$prenom_;
+        $this->id_=$id;
+        //szelect µ from Arreirer where id = $id
+        //$this->nom=$nom_;
+        //$this->prenom=$prenom_;
         $this->PDO_=$pdo;
     }
     
