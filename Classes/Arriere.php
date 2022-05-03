@@ -12,13 +12,13 @@
         $this->PDO_=$pdo;
     }
     
-    public function GetMeneur()
+    public function GetArrriere()
     {
-        $sql="SELECT * FROM meneur";
+        $sql="SELECT * FROM arriere";
         $reponse = $this->PDO_->query($sql);
         while($donnees=$reponse->fetch())
         {
-            $Meneur = new Meneur($donnees['id'],$donnees['prenom'],$donnees['nom'],$this->PDO_);
+            $Arriere = new Meneur($donnees['id'],$donnees['prenom'],$donnees['nom'],$this->PDO_);
         }
     }
 
