@@ -12,6 +12,8 @@ class equipe{
     private $ObjAilier_;
     private $ObjMeneur_;
     private $ObjAilierfort_;
+    private $ObjArriere_;
+    private $ObjPivot_;
     
     public function __construct($id, $nom){
         $this->id_ =$id;
@@ -24,19 +26,18 @@ class equipe{
         //construir allier avec les données en base
         $Ailier = new Ailier();
         $this->ObjAilier_ = $Ailier;
+
         $Meneur = new Meneur();
         $this->ObjMeneur_ = $Meneur;
+
         $Ailierfort = new  Ailierfort();
         $this->ObjAilierfort_ = $Ailierfort;
+
+        $Arriere = new  Arriere();
+        $this->ObjArriere_ = $Arriere;
+
+        $Pivot = new  Pivot();
+        $this->ObjPivot_ = $Pivot;
     }
-
-
 }
-
-
-
-
-
-
-
 ?>
