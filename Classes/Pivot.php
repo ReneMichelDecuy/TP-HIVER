@@ -9,7 +9,7 @@
         $this->id=$id_;
         $this->nom=$nom_;
         $this->prenom=$prenom_;
-        $this->PDO_=$pdo
+        $this->PDO_=$pdo;
     }
     
     public function GetMeneur()
