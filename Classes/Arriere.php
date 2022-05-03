@@ -18,7 +18,7 @@
         $reponse = $this->PDO_->query($sql);
         while($donnees=$reponse->fetch())
         {
-            $Meneur = new Meneur($donnees['id'],$donnees['prenom'],$donnees['nom'],$this->PDO_);
+            $Arriere = new Meneur($donnees['id'],$donnees['prenom'],$donnees['nom'],$this->PDO_);
         }
     }
 
