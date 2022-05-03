@@ -45,4 +45,8 @@ class equipe{
         $this->ObjPivot_ = $Pivot;
     }
 }
+
+//envoi test
 ?>
+
+  
