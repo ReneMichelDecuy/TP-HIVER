@@ -1,4 +1,4 @@
-<?php class AillierFort{
+<?php class AilierFort{
     private $id_;
     private $prenom_;
     private $nom_;
@@ -12,13 +12,13 @@
         $this->PDO_=$pdo;
     }
     
-    public function GetMeneur()
+    public function GetAilierfort()
     {
-        $sql="SELECT * FROM meneur";
+        $sql="SELECT * FROM ailierfort";
         $reponse = $this->PDO_->query($sql);
         while($donnees=$reponse->fetch())
         {
-            $Meneur = new Meneur($donnees['id'],$donnees['prenom'],$donnees['nom'],$this->PDO_);
+            $Ailierfort = new Ailierfort($donnees['id'],$donnees['prenom'],$donnees['nom'],$this->PDO_);
         }
     }
 
