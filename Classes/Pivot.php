@@ -12,9 +12,9 @@
         $this->PDO_=$pdo;
     }
     
-    public function GetMeneur()
+    public function GetPivot()
     {
-        $sql="SELECT * FROM meneur";
+        $sql="SELECT * FROM pivot";
         $reponse = $this->PDO_->query($sql);
         while($donnees=$reponse->fetch())
         {
