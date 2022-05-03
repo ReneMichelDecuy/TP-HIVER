@@ -30,7 +30,7 @@ class equipe{
         $Meneur = new Meneur();
         $this->ObjMeneur_ = $Meneur;
 
-        $Ailierfort = new  Ailierfort();
+        $Ailierfort = new  AilierFort();
         $this->ObjAilierfort_ = $Ailierfort;
 
         $Arriere = new  Arriere();
