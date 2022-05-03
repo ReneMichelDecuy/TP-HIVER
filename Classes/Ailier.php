@@ -6,7 +6,7 @@
     public function __construct($id, $prenom, $nom){
         $this->id_ =$id;
         $this->prenom_ =$prenom;
-        $this->nom_ =$nom;
+        $this->nom_ =$nom;   
     }
 }
 ?>
