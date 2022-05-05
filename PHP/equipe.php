@@ -27,7 +27,14 @@ class equipe{
         //chercher en bdd les id de chaques joueur selon id de l'équipe
         $idAilier= 0;
         $idMeneur= 0;
+        $sql= "SELECT id FROM meneur ";
+        $sql= "SELECT id FROM arriere ";
+        $sql= "SELECT id FROM ailier ";
+        $sql= "SELECT id FROM ailierfort ";
+        $sql= "SELECT id FROM pivot ";
 
+        $reponses = $this->PDO_->query($sql);
+    
         //construir allier avec les données en base
         $Ailier = new Ailier($idAilier,$this->PDO_);
         $this->ObjAilier_ = $Ailier;
